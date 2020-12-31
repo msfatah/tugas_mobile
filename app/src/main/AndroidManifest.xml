@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="id.dipikul.githubfav">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <permission android:name="id.dipikul.githubfav.READ_DATABASE"
+        android:protectionLevel="normal"/>
+    <permission android:name="id.dipikul.githubfav.WRITE_DATABASE"
+        android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <provider
+            android:authorities="id.dipikul.githubfav"
+            android:name=".provider.MyContentProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="id.dipikul.githubfav.READ_DATABASE"
+            android:writePermission="id.dipikul.githubfav.WRITE_DATABASE"/>
+
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.FavoriteActivity" />
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".alarm.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"/>
+    </application>
+
+</manifest>

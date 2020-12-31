@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UserFav</string>
+    <string name="cd_image_user_item">Phot Profile</string>
+    <string name="useranme_item">useranme Item</string>
+</resources>
